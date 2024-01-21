@@ -1,3 +1,4 @@
+using Assets.Enums;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -34,8 +35,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimation() 
     {
-        // Animate our character
-        animator.SetBool("running", moveHorizontal != 0f);
+        MovementState state;
+
+        state = (moveHorizontal != 0f) ? MovementState.running : MovementState.idle;
+        if (rbPlayer.velocity.y > .1f)
+        {
+            state = MovementState.jumping;
+        }else if (rbPlayer.velocity.y < -.1f)
+        {
+            state = MovementState.falling;
+        }
+
         spriteRenderer.flipX = (moveHorizontal < 0f);
+
+        animator.SetInteger("state", (int)state);
     }
 }
