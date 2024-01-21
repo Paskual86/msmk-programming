@@ -8,6 +8,7 @@ public class ItemCollector : MonoBehaviour
 
     private int cherries = 0;
     [SerializeField] private Text cherriesText;
+    [SerializeField] private AudioSource collectSoundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             cherries++;
             cherriesText.text = $"Cherries: {cherries}";
+            collectSoundEffect.Play();
             Debug.Log($"Cherries Count: {cherries}");
         }
     }

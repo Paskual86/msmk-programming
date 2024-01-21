@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 7f;
     [SerializeField] private float jump = 14f;
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rbPlayer.velocity = new Vector2(moveHorizontal * moveSpeed, rbPlayer.velocity.y);
         if (Input.GetKeyDown(KeyCode.Space) && (IsGrounded()))
         {
+            jumpSoundEffect.Play();
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jump);
         }
         UpdateAnimation();

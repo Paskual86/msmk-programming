@@ -8,6 +8,7 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D _rbPlayer;
     private Animator _animator;
 
+    [SerializeField] private AudioSource dieSoundEffect;
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerLife : MonoBehaviour
     {
         _rbPlayer.bodyType = RigidbodyType2D.Static;
         _animator.SetTrigger("death");
+        dieSoundEffect.Play();
     }
 
     public void RestartLevel() 
