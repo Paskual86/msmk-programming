@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\CameraPlayerController.cs" />
     <Compile Include="Assets\Enums\MovementState.cs" />
     <Compile Include="Assets\Scripts\PlayerLife.cs" />
+    <Compile Include="Assets\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\ItemCollector.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
